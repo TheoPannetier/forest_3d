@@ -12,7 +12,7 @@ endif()
 project ("forest_3d")
 
 # Add source to this project's executable.
-add_executable (forest_3d "src/main.cpp"  "src/Vox.h" "src/Branch.h" "src/VoxArray.h")
+add_executable (forest_3d "src/main.cpp"  "src/Voxel.h" "src/Voxel.cpp" "src/Branch.h" "src/VoxelArray.h")
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET forest_3d PROPERTY CXX_STANDARD 20)
