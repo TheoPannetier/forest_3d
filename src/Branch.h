@@ -6,5 +6,5 @@ class Branch
 public:
 	int getID() const { return branchID; }
 private:
-	int branchID;
+	int branchID = 0L;
 };

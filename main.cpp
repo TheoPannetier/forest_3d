@@ -3,9 +3,9 @@
 
 
 #include <iostream>
-#include "Voxel.h"
+#include "src/Voxel.h"
 
-#include "VoxelArray.h"
+#include "src/VoxelArray.h"
 using namespace std;
 
 int main()

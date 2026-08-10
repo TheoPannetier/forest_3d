@@ -11,11 +11,20 @@ endif()
 
 project ("forest_3d")
 
+file(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS
+    "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp"
+)
+
 # Add source to this project's executable.
-add_executable (forest_3d "src/main.cpp"  "src/Voxel.h" "src/Voxel.cpp" "src/Branch.h" "src/VoxelArray.h")
+add_executable (forest_3d main.cpp ${SOURCES})
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET forest_3d PROPERTY CXX_STANDARD 20)
 endif()
 
 # TODO: Add tests and install targets if needed.
+enable_testing()
+
+add_executable (test_forest_3d tests/test_main.cpp ${SOURCES})
+
+add_test(NAME forest_test COMMAND test_forest_3d)
