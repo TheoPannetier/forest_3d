@@ -1,6 +1,6 @@
 #include "Voxel.h"
 
-Voxel::Voxel(int x, int y, int z) : x_(x), y_(y), z_(z)
+Voxel::Voxel(CoordInt c) : c_(c)
 {
 }
 

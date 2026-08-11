@@ -18,7 +18,7 @@ public:
         for (std::size_t z = 0; z < depth; ++z) {
             for (std::size_t y = 0; y < height; ++y) {
                 for (std::size_t x = 0; x < width; ++x) {
-                   matrix_.emplace_back(x, y, z);
+                   matrix_.emplace_back(CoordInt(x, y, z));
                 }
             }
         }

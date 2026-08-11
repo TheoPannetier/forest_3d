@@ -2,6 +2,7 @@
 //
 
 #include <iostream>
+#include "src/Utils.h"
 #include "src/Voxel.h"
 #include "src/VoxelArray.h"
 using namespace std;
@@ -9,8 +10,6 @@ using namespace std;
 int main()
 {
 	const int dim_x = 30, dim_y = 30, dim_z = 30;
-	//Grid3D<int> i_matrix(dim_x, dim_y, dim_z);
-	Voxel v();
 	VoxelArray vox_matrix(dim_x, dim_y, dim_z);
 
 	cout << "Hello CMake." << endl;

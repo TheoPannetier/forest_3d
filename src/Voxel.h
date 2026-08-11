@@ -7,12 +7,15 @@ using namespace std;
 #include <string>
 #include "Tree.h"
 #include "Branch.h"
+#include "Utils.h"
 
 class Voxel
 {
 public:
 	
-	Voxel(int x, int y, int z);
+	Voxel(CoordInt c);
+
+	CoordInt get_coord() const { return c_; }
 
 	void reset();
 
@@ -39,7 +42,7 @@ public:
 	void removeBProdTot(Branch* b);
 
 	private:
-		int x_, y_, z_;
+		CoordInt c_;
 
 		float light = 0.0f;      // normalized amount of light available in this voxel
 		float leafArea = 0.0f;   // total leaf area in this voxel
