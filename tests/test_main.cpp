@@ -1,8 +1,24 @@
-#include "../src/Voxel.h"
-
 using namespace std;
-#include "iostream"
+#include <iostream>
+#include <string>
 
+#include "../src/Voxel.h"
+#include "../src/Branch.h"
+
+#define BOOST_TEST_MODULE MyTest
+#include <boost/test/included/unit_test.hpp>
+
+BOOST_AUTO_TEST_CASE(my_boost_test)
+{
+	cout << "Running BOOST TEST" << endl;
+	Voxel v(1, 1, 1);
+	Branch* b = new Branch;
+	v.addBranch(b, 3.0f);
+	BOOST_CHECK(v.getLeafAreaAxis(0) == 3.0f);
+	delete b;
+}
+
+/*
 int main()
 {
 	cout << "Running test!" << endl;
@@ -16,3 +32,4 @@ int main()
 
 	return 0;
 }
+*/

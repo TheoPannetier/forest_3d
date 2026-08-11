@@ -11,6 +11,8 @@ endif()
 
 project ("forest_3d")
 
+find_package(Boost REQUIRED)
+
 file(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS
     "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp"
 )
@@ -26,5 +28,7 @@ endif()
 enable_testing()
 
 add_executable (test_forest_3d tests/test_main.cpp ${SOURCES})
+
+target_link_libraries(test_forest_3d PRIVATE Boost::headers)
 
 add_test(NAME forest_test COMMAND test_forest_3d)

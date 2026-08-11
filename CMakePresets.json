@@ -1,4 +1,4 @@
-﻿git {
+﻿{
     "version": 3,
     "configurePresets": [
         {
@@ -19,7 +19,7 @@
         },
         {
             "name": "x64-debug",
-            "displayName": "x64 Debug",
+            "displayName": "hello",
             "inherits": "windows-base",
             "architecture": {
                 "value": "x64",

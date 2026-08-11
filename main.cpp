@@ -1,10 +1,8 @@
 ﻿// forest_3d.cpp : Defines the entry point for the application.
 //
 
-
 #include <iostream>
 #include "src/Voxel.h"
-
 #include "src/VoxelArray.h"
 using namespace std;
 
