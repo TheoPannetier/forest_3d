@@ -2,6 +2,8 @@
 //
 
 #include <iostream>
+#include "src/Parameters.h"
+#include "src/Simulation.h"
 #include "src/Utils.h"
 #include "src/Voxel.h"
 #include "src/VoxelArray.h"
@@ -9,9 +11,13 @@ using namespace std;
 
 int main()
 {
-	const int dim_x = 30, dim_y = 30, dim_z = 30;
-	VoxelArray vox_matrix(dim_x, dim_y, dim_z);
+	// TODO: RNG
+	// TODO: read parameters
 
-	cout << "Hello CMake." << endl;
+	const string path_to_project;
+	Parameters p(path_to_project);
+	Simulation s(p);
+	s.run();
+	cout << "Simulation completed." << endl;
 	return 0;
 }
