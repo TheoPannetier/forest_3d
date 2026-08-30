@@ -20,9 +20,9 @@ file(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS
 # Add source to this project's executable.
 add_executable (forest_3d main.cpp ${SOURCES} "src/Utils.h" "src/Utils.cpp" "src/Simulation.h" "src/Simulation.cpp" "src/Parameters.h" "src/Parameters.cpp")
 
-if (CMAKE_VERSION VERSION_GREATER 3.12)
+#if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET forest_3d PROPERTY CXX_STANDARD 20)
-endif()
+#endif()
 
 # TODO: Add tests and install targets if needed.
 enable_testing()
