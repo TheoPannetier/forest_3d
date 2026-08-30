@@ -4,7 +4,6 @@
 Simulation::Simulation(const Parameters& params) :
 	params_(params)
 {
-	//const int dim_x = 30, dim_y = 30, dim_z = 30;
 	vox_matrix_ = VoxelArray(params.get_dim_x(), params.get_dim_y(), params.get_dim_z());
 }
 

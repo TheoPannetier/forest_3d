@@ -3,11 +3,14 @@
 
 #include <iostream>
 #include <filesystem>
+#include <stdexcept>
+
 #include "src/Parameters.h"
 #include "src/Simulation.h"
 #include "src/Utils.h"
 #include "src/Voxel.h"
 #include "src/VoxelArray.h"
+
 using namespace std;
 namespace fs = std::filesystem;
 
@@ -24,12 +27,6 @@ int main(int argc, char* argv[])
 		cout << input_dir << " does not exist. " << endl;
 		return 1;
 	}
-	const fs::path path_params_global{ input_dir / "params_global.txt" };
-	const fs::path path_params_pass{ input_dir / "params_pass0.txt" };
-	if (!(fs::exists(path_params_global) && fs::exists(path_params_pass))) {
-		cout << "Input directory must contain input files params_global.txt and params_pass0.txt" << endl;
-		return 1;
-	}
 	const fs::path output_dir{ project_dir / "outputs" };
 	if (!fs::exists(output_dir)) {
 		fs::create_directory(output_dir);
@@ -37,10 +34,16 @@ int main(int argc, char* argv[])
 
 	// TODO: RNG
 	// TODO: read parameters
-	// 
-	//Parameters p(path_to_project);
-	//Simulation s(p);
-	//s.run();
+	try {
+		Parameters p(input_dir);
+		cout << endl;
+		//Simulation s(p);
+		//s.run();
+	}
+	catch (logic_error& e) {
+		cerr << e.what() << endl;
+		return -1;
+	}
 	cout << "Simulation completed." << endl;
 	return 0;
 }
