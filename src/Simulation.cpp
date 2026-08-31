@@ -4,13 +4,14 @@
 Simulation::Simulation(const Parameters& params) :
 	params_(params)
 {
-	vox_matrix_ = VoxelArray(params.get_dim_x(), params.get_dim_y(), params.get_dim_z());
+	const GlobalParams& gp = params.get_global_params();
+	vox_matrix_ = VoxelArray(gp.dim_x, gp.dim_y, gp.dim_z);
 }
 
 void Simulation::run()
 {
-	const int nb_years = params_.get_nb_years();
-	const double stop_basal_area = params_.get_stop_criterion();
+	const int nb_years = 3;
+	const double stop_basal_area = 1000.0;
 	double total_basal_area = 0.0f;
 	bool stop_criterion_reached = false;
 
