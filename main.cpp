@@ -41,7 +41,7 @@ int main(int argc, char* argv[])
 		//s.run();
 	}
 	catch (logic_error& e) {
-		cerr << e.what() << endl;
+		cerr << "Error: " << e.what() << endl;
 		return -1;
 	}
 	cout << "Simulation completed." << endl;

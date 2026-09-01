@@ -14,7 +14,6 @@ Parameters::Parameters(const fs::path& input_dir)
 
 	read_global_parameters(path_params_global);	
 	read_pass_parameters(path_params_pass);
-
 }
 
 void Parameters::read_global_parameters(const fs::path path_params_global) {
@@ -213,76 +212,77 @@ void Parameters::read_pass_parameters(const fs::path path_params_pass) {
 	
 	// Assign input values
 	PassParams pp;
-	pp.al_max = input_vals[0];
-	pp.al_prod_max = ParamRange(input_vals[1], input_vals[2]);
-	pp.angle_first_order = ParamRange(input_vals[3], input_vals[4]);
-	pp.angle_sec_order = ParamRange(input_vals[1], input_vals[2]);
-	pp.beta_d = ParamRange(input_vals[1], input_vals[2]);
-	pp.beta_s = input_vals[0];
-	pp.branch_mort_mass_rate = input_vals[0];
-	pp.branch_mort_mass_exp = input_vals[0];
-	pp.branch_mort_method = input_vals[0];
-	pp.branch_mort_rnd_rate = input_vals[0];
-	pp.branches_collide = input_vals[0];
-	pp.carbon_overhead_costs = input_vals[0];
-	pp.cbl_ratio = input_vals[0];
-	pp.cbw_ratio = input_vals[0];
-	pp.dist_vox_light_cal = input_vals[0];
-	pp.edge_c = input_vals[0];
-	pp.form_factor_wood = input_vals[0];
-	pp.h_sun = input_vals[0];
-	pp.i_max = input_vals[0];
-	pp.init_diameter = input_vals[0];
-	pp.internode_len_branch_max = ParamRange(input_vals[1], input_vals[2]);
-	pp.internode_len_branch_min = ParamRange(input_vals[1], input_vals[2]);
-	pp.internode_len_trunk_max = ParamRange(input_vals[1], input_vals[2]);
-	pp.internode_len_trunk_min = ParamRange(input_vals[1], input_vals[2]);
-	pp.k_int = ParamRange(input_vals[1], input_vals[2]);
-	pp.ld_branch = input_vals[0];
-	pp.ld_tree_dev = ParamRange(input_vals[1], input_vals[2]);
-	pp.light_c = input_vals[0];
-	pp.light_ext_coeff = input_vals[0];
-	pp.light_thresh_apical = ParamRange(input_vals[1], input_vals[2]);
-	pp.lp_ratio = input_vals[0];
-	pp.min_leaf_area = input_vals[0];
-	pp.min_leaf_area_ratio = input_vals[0];
-	pp.mort_biomass_rate = input_vals[0];
-	pp.mort_biomass_exp = input_vals[0];
-	pp.mort_dist_freq = input_vals[0];
-	pp.mort_dist_rate = input_vals[0];
-	pp.mort_neigh_diameter = input_vals[0];
-	pp.mort_neigh_rate = input_vals[0];
-	pp.nb_seedling_per_ha = ParamRange(input_vals[1], input_vals[2]);
-	pp.nb_species = input_vals[0];
-	pp.phyllotaxis_first_order = ParamRange(input_vals[1], input_vals[2]);
-	pp.pipe_len_method = input_vals[0];
-	pp.pipe_reuse_fct = ParamRange(input_vals[1], input_vals[2]);
-	pp.respi_rate_wood = input_vals[0];
-	pp.safety_fct_trunk = input_vals[0];
-	pp.shortening_fct = ParamRange(input_vals[1], input_vals[2]);
-	pp.site_index = input_vals[0];
-	pp.sla = ParamRange(input_vals[1], input_vals[2]);
-	pp.stochasticity = input_vals[0];
-	pp.stoch_angle_first_order_side = ParamRange(input_vals[1], input_vals[2]);
-	pp.stoch_angle_first_order_top = ParamRange(input_vals[1], input_vals[2]);
-	pp.stoch_angle_sec_order = ParamRange(input_vals[1], input_vals[2]);
-	pp.stoch_tropism_strength = ParamRange(input_vals[1], input_vals[2]);
-	pp.stoch_twisting = ParamRange(input_vals[1], input_vals[2]);
-	pp.stop_criterion = input_vals[0];
-	pp.tree_comp_dist = input_vals[0];
-	pp.tree_comp_num = input_vals[0];
-	pp.tree_mort_biomass = input_vals[0];
-	pp.tree_mort_carbon = input_vals[0];
-	pp.tree_mort_dist = input_vals[0];
-	pp.tree_mort_neigh = input_vals[0];
-	pp.tropism_strength = ParamRange(input_vals[1], input_vals[2]);
-	pp.nb_sunny_days = input_vals[0];
-	pp.wood_density = ParamRange(input_vals[1], input_vals[2]);
+	int i = 0;
+	pp.al_max = input_vals[i++];
+	pp.al_prod_max = ParamRange{ input_vals[i++], input_vals[i++] };
+	pp.angle_first_order = ParamRange{ input_vals[i++], input_vals[i++] };
+	pp.angle_sec_order = ParamRange{ input_vals[i++], input_vals[i++] };
+	pp.beta_d = ParamRange{ input_vals[i++], input_vals[i++] };
+	pp.beta_s = input_vals[i++];
+	pp.branch_mort_mass_rate = input_vals[i++];
+	pp.branch_mort_mass_exp = input_vals[i++];
+	pp.branch_mort_method = input_vals[i++];
+	pp.branch_mort_rnd_rate = input_vals[i++];
+	pp.branches_collide = input_vals[i++];
+	pp.carbon_overhead_costs = input_vals[i++];
+	pp.cbl_ratio = input_vals[i++];
+	pp.cbw_ratio = input_vals[i++];
+	pp.dist_vox_light_cal = input_vals[i++];
+	pp.edge_c = input_vals[i++];
+	pp.form_factor_wood = input_vals[i++];
+	pp.h_sun = input_vals[i++];
+	pp.i_max = input_vals[i++];
+	pp.init_diameter = input_vals[i++];
+	pp.internode_len_branch_max = ParamRange{ input_vals[i++], input_vals[i++] };
+	pp.internode_len_branch_min = ParamRange{ input_vals[i++], input_vals[i++] };
+	pp.internode_len_trunk_max = ParamRange{ input_vals[i++], input_vals[i++] };
+	pp.internode_len_trunk_min = ParamRange{ input_vals[i++], input_vals[i++] };
+	pp.k_int = ParamRange{ input_vals[i++], input_vals[i++] };
+	pp.ld_branch = input_vals[i++];
+	pp.ld_tree_dev = ParamRange{ input_vals[i++], input_vals[i++] };
+	pp.light_c = input_vals[i++];
+	pp.light_ext_coeff = input_vals[i++];
+	pp.light_thresh_apical = ParamRange{ input_vals[i++], input_vals[i++] };
+	pp.lp_ratio = input_vals[i++];
+	pp.min_leaf_area = input_vals[i++];
+	pp.min_leaf_area_ratio = input_vals[i++];
+	pp.mort_biomass_rate = input_vals[i++];
+	pp.mort_biomass_exp = input_vals[i++];
+	pp.mort_dist_freq = input_vals[i++];
+	pp.mort_dist_rate = input_vals[i++];
+	pp.mort_neigh_diameter = input_vals[i++];
+	pp.mort_neigh_rate = input_vals[i++];
+	pp.nb_seedling_per_ha = ParamRange{ input_vals[i++], input_vals[i++] };
+	pp.nb_species = input_vals[i++];
+	pp.phyllotaxis_first_order = ParamRange{ input_vals[i++], input_vals[i++] };
+	pp.pipe_len_method = input_vals[i++];
+	pp.pipe_reuse_fct = ParamRange{ input_vals[i++], input_vals[i++] };
+	pp.respi_rate_wood = input_vals[i++];
+	pp.safety_fct_trunk = input_vals[i++];
+	pp.shortening_fct = ParamRange{ input_vals[i++], input_vals[i++] };
+	pp.site_index = input_vals[i++];
+	pp.sla = ParamRange{ input_vals[i++], input_vals[i++] };
+	pp.stochasticity = input_vals[i++];
+	pp.stoch_angle_first_order_side = ParamRange{ input_vals[i++], input_vals[i++] };
+	pp.stoch_angle_first_order_top = ParamRange{ input_vals[i++], input_vals[i++] };
+	pp.stoch_angle_sec_order = ParamRange{ input_vals[i++], input_vals[i++] };
+	pp.stoch_tropism_strength = ParamRange{ input_vals[i++], input_vals[i++] };
+	pp.stoch_twisting = ParamRange{ input_vals[i++], input_vals[i++] };
+	pp.stop_criterion = input_vals[i++];
+	pp.tree_comp_dist = input_vals[i++];
+	pp.tree_comp_num = input_vals[i++];
+	pp.tree_mort_biomass = input_vals[i++];
+	pp.tree_mort_carbon = input_vals[i++];
+	pp.tree_mort_dist = input_vals[i++];
+	pp.tree_mort_neigh = input_vals[i++];
+	pp.tropism_strength = ParamRange{ input_vals[i++], input_vals[i++] };
+	pp.nb_sunny_days = input_vals[i++];
+	pp.wood_density = ParamRange{ input_vals[i++], input_vals[i++] };
 	pass_params_ = pp;
 
 }
 
-void Parameters::check_pass_parameters(const vector<string>& param_names, const vector<double>& input_vals) const 
+void Parameters::check_pass_parameters(const vector<string>& param_names, const vector<double>& input_vals) const
 {
 	assert(param_names.size() == input_vals.size());
 	map<string, double> input_map;
@@ -291,15 +291,19 @@ void Parameters::check_pass_parameters(const vector<string>& param_names, const 
 	}
 
 	// TRUE/FALSE parameters
-	const set<string> bool_params{ "EdgeC", "BrCollide", 
-		"PipeLengthMethod", "Stochasticity", 
+	const set<string> bool_params{ "EdgeC", "BrCollide",
+		"PipeLengthMethod", "Stochasticity",
 		"TreeMortBiomass", "TreeMortCarbon",
 		"TreeMortDist", "TreeMortNeigh"
 	};
 	for (string p : bool_params) {
-		for (auto it = input_map.find(p); it != input_map.end(); ++it) {
-			if (it->first == p && (it->second != 0L && it->second != 1L))
+		auto it = input_map.find(p);
+		if (it != input_map.end()) {
+			if (it->second != 0L && it->second != 1L)
 				throw logic_error(it->first + " is " + to_string(it->second) + ", should be either 0 or 1.");
+		}
+		else {
+			throw logic_error("Could not find " + p + " in parameter list.");
 		}
 	}
 
@@ -310,13 +314,17 @@ void Parameters::check_pass_parameters(const vector<string>& param_names, const 
 		"ShorteningFactor_Min", "ShorteningFactor_Max", "FormFactorWood"
 	};
 	for (string p : prop_params) {
-		for (auto it = input_map.find(p); it != input_map.end(); ++it) {
-			if (it->first == p && !(it->second >= 0.0f && it->second <= 1.0f))
+		auto it = input_map.find(p);
+		if (it != input_map.end()) {
+			if (!(it->second >= 0.0f && it->second <= 1.0f))
 				throw logic_error(it->first + " is " + to_string(it->second) + ", should be between 0 and 1.");
+		}
+		else {
+			throw logic_error("Could not find " + p + " in parameter list.");
 		}
 	}
 
-	const set<string> positive_params{ 
+	const set<string> positive_params{
 		"ALMax", "ALProdMax_Min", "ALProdMax_Max",
 		"BetaD_Min", "BetaD_Max", "BetaS",
 		"BranchMortMassScalingExponent",
@@ -325,19 +333,23 @@ void Parameters::check_pass_parameters(const vector<string>& param_names, const 
 		"LDBranch", "LDTreeDev_Min", "LDTreeDev_Max",
 		"LightExtinctionCoeff",
 		"MortalityBiomassScalingExponent",
-		"MortalityDisturbanceFrequency", 
-		"MortalityNeighMinDiameter", 
-		"RespirationRateWood", 
+		"MortalityDisturbanceFrequency",
+		"MortalityNeighMinDiameter",
+		"RespirationRateWood",
 		"TreeCompetitionDist"
 	};
 	for (string p : positive_params) {
-		for (auto it = input_map.find(p); it != input_map.end(); ++it) {
-			if (it->first == p && it->second < 0.0f)
+		auto it = input_map.find(p);
+		if (it != input_map.end()) {
+			if (it->second < 0.0f)
 				throw logic_error(it->first + " is " + to_string(it->second) + ", should be positive or zero.");
+		}
+		else {
+			throw logic_error("Could not find " + p + " in parameter list.");
 		}
 	}
 
-	const set<string> strictly_positive_params{ 
+	const set<string> strictly_positive_params{
 		"CarbonOverheadCosts",
 		"InternodeLengthBranchMax_Min", "InternodeLengthBranchMax_Max",
 		"InternodeLengthBranchMin_Min", "InternodeLengthBranchMin_Max",
@@ -352,55 +364,68 @@ void Parameters::check_pass_parameters(const vector<string>& param_names, const 
 		"WoodDensity_Min", "WoodDensity_Max"
 	};
 	for (string p : strictly_positive_params) {
-		for (auto it = input_map.find(p); it != input_map.end(); ++it) {
-			if (it->first == p && it->second <= 0.0f)
+		auto it = input_map.find(p);
+		if (it != input_map.end()) {
+			if (it->second <= 0.0f)
 				throw logic_error(it->first + " is " + to_string(it->second) + ", should be strictly positive.");
+		}
+		else {
+			throw logic_error("Could not find " + p + " in parameter list.");
 		}
 	}
 
-	const set<string> angle_params{ 
+	const set<string> angle_params{
 		"AngleFirstOrderSideView_Min", "AngleFirstOrderSideView_Max",
 		"AngleSecondOrderTopView_Min", "AngleSecondOrderTopView_Max"
 	};
 	for (string p : angle_params) {
-		for (auto it = input_map.find(p); it != input_map.end(); ++it) {
-			if (it->first == p && !(it->second >= 0.0f && it->second <= 180.0f))
+		auto it = input_map.find(p);
+		if (it != input_map.end()) {
+			if (!(it->second >= 0.0f && it->second <= 180.0f))
 				throw logic_error(it->first + " is " + to_string(it->second) + ", should be between 0 and 180 degrees.");
+		}
+		else {
+			throw logic_error("Could not find " + p + " in parameter list.");
 		}
 	}
 
 	const set<string> above_one_params{
-		"NumberSpecies", 
+		"NumberSpecies",
 		"PhyllotaxisFirstOrder_Min", "PhyllotaxisFirstOrder_Max"
 	};
 	for (string p : above_one_params) {
-		for (auto it = input_map.find(p); it != input_map.end(); ++it) {
-			if (it->first == p && it->second < 1L)
+		auto it = input_map.find(p);
+		if (it != input_map.end()) {
+			if (it->second < 1L)
 				throw logic_error(it->first + " is " + to_string(it->second) + ", should be at least 1.");
+		}
+		else {
+			throw logic_error("Could not find " + p + " in parameter list.");
 		}
 	}
 
 	// Specific values
-	for (auto it = input_map.find("TreeCompetitionNum"); it != input_map.end(); ++it) {
-		if (!(it->second >= 0L && it->second <= 8L))
-			throw logic_error(it->first + " is " + to_string(it->second) + ", should be between 0 and 8.");
-	}
-	for (auto it = input_map.find("BranchMortMethod"); it != input_map.end(); ++it) {
-		if ((it->second != 0L && it->second != 1L && it->second != 2L))
-			throw logic_error(it->first + " is " + to_string(it->second) + ", should be either 0, 1 or 2.");
-	}
-	for (auto it = input_map.find("LightC"); it != input_map.end(); ++it) {
-		if ((it->second != 1L && it->second != 2L && it->second != 3L))
-			throw logic_error(it->first + " is " + to_string(it->second) + ", should be either 1, 2 or 3.");
-	}
-	for (auto it = input_map.find("Hsun"); it != input_map.end(); ++it) {
-		if (!(it->second >= 0L && it->second <= 24L))
-			throw logic_error(it->first + " is " + to_string(it->second) + ", should be between 0 and 24 hours.");
-	}
-	for (auto it = input_map.find("Tyear"); it != input_map.end(); ++it) {
-		if (!(it->second >= 0L && it->second <= 365L))
-			throw logic_error(it->first + " is " + to_string(it->second) + ", should be between 0 and 365 days.");
-	}
+	auto it = input_map.find("TreeCompetitionNum");
+	if (it != input_map.end() && !(it->second >= 0L && it->second <= 8L))
+		throw logic_error(it->first + " is " + to_string(it->second) + ", should be between 0 and 8.");
+
+	it = input_map.find("BranchMortMethod");
+	if (it != input_map.end() && (it->second != 0L && it->second != 1L && it->second != 2L))
+		throw logic_error(it->first + " is " + to_string(it->second) + ", should be either 0, 1 or 2.");
+
+	it = input_map.find("LightC");
+	if (it != input_map.end() && (it->second != 1L && it->second != 2L && it->second != 3L))
+		throw logic_error(it->first + " is " + to_string(it->second) + ", should be either 1, 2 or 3.");
+
+	it = input_map.find("Hsun");
+	if (it != input_map.end() && !(it->second >= 0L && it->second <= 24L))
+		throw logic_error(it->first + " is " + to_string(it->second) + ", should be between 0 and 24 hours.");
+
+	it = input_map.find("Tyear");
+	if (it != input_map.end() && !(it->second >= 0L && it->second <= 365L))
+		throw logic_error(it->first + " is " + to_string(it->second) + ", should be between 0 and 365 days.");
+
+	//cout << it->first << "\t" << it->second << endl;
 
 	// These params can be negative, AFAICS any value goes so no check
 	const set<string> anything_params{
@@ -417,6 +442,43 @@ void Parameters::check_pass_parameters(const vector<string>& param_names, const 
 		"TropismStrength_Min", "TropismStrength_Max"
 	};
 
-	// TODO: also check min <= max for all pairs
+	// Paired parameters: Min <= Max
+	const set<pair<string, string>> paired_param_names{
+		{"LDTreeDev_Min", "LDTreeDev_Max" },
+		{"ALProdMax_Min", "ALProdMax_Max"},
+		{"BetaD_Min", "BetaD_Max"},
+		{"InternodeLengthBranchMax_Min", "InternodeLengthBranchMax_Max" },
+		{"InternodeLengthBranchMin_Min", "InternodeLengthBranchMin_Max" },
+		{"InternodeLengthTrunkMax_Min", "InternodeLengthTrunkMax_Max" },
+		{"InternodeLengthTrunkMin_Min", "InternodeLengthTrunkMin_Max" },
+		{"KInt_Min", "KInt_Max" },
+		{"NumberSeedlingPerHa_Min", "NumberSeedlingPerHa_Max"},
+		{"SLA_Min", "SLA_Max"},
+		{"WoodDensity_Min", "WoodDensity_Max"},
+		{"LightThreshApical_Min", "LightThreshApical_Max" },
+		{"AngleFirstOrderSideView_Min", "AngleFirstOrderSideView_Max" },
+		{"AngleSecondOrderTopView_Min", "AngleSecondOrderTopView_Max" },
+		{"PhyllotaxisFirstOrder_Min", "PhyllotaxisFirstOrder_Max"},
+		{"PipeReuseFactor_Min", "PipeReuseFactor_Max" },
+		{"ShorteningFactor_Min", "ShorteningFactor_Max"},
+		{"StochasticityAngleFirstOrderSideView_Min", "StochasticityAngleFirstOrderSideView_Max"},
+		{"StochasticityAngleFirstOrderTopView_Min", "StochasticityAngleFirstOrderTopView_Max"},
+		{"StochasticityAngleSecondOrderTopView_Min", "StochasticityAngleSecondOrderTopView_Max"},
+		{"StochasticityTropismStrength_Min", "StochasticityTropismStrength_Max"},
+		{"StochasticityTwisting_Min", "StochasticityTwisting_Max" },
+		{"TropismStrength_Min", "TropismStrength_Max"}
+	};
+	for (auto ppn : paired_param_names) {
+		auto it_min = input_map.find(ppn.first);
+		auto it_max = input_map.find(ppn.second);
+		if (it_min != input_map.end() && it_max != input_map.end()) {
+			if (it_min->second > it_max->second)
+				throw logic_error(it_min->first + " is larger than " + it_max->first
+					+ " (" + to_string(it_min->second) + " > " + to_string(it_max->second) + ")");
+		}
+		else {
+			throw logic_error(ppn.first + " or " + ppn.second + " missing from pass parameters.");
+		}
+	}
 
 }
